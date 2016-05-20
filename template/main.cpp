@@ -32,17 +32,18 @@ int main()
 
 bool menu()
 {
-    gotoxy(2, 1);                                   // оформление
+    gotoxy(0, 1);                                   // оформление
     cout<<"Содержимое стека:";                      // вывода
     gotoxy(50, 1);                                  // содержимого
     cout<<"Полученное значение";                    // стека
-    for (int i = 0; i<objPtr->getSize(); i++)
+    int elemCount = objPtr->getCounterElement();
+    for (int i = 0; i<elemCount; i++)
     {
-        gotoxy(2, 3+i);
+        gotoxy(0, 3+i);
         Complex element = objPtr->showStack(i);
-        if (objPtr->getCounter()!=0)
+        if (elemCount!=0)
         {
-            cout<<element;
+            cout<<element;                          // ОШИБКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
         else
             cout<<"empty";
@@ -69,7 +70,10 @@ bool menu()
     case ONE:                                       //                              удаление
         {
             gotoxy(50,3);
-            cout<<objPtr->pop()<<endl;
+            if (elemCount!=0)
+                cout<<objPtr->pop()<<endl;
+            else
+                cout<<"Стек пуст!"<<endl;
             break;
         }
     default:

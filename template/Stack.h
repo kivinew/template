@@ -10,17 +10,17 @@ class Stack
     int top;                                        // вершина стека
     int counter;                                    // счётчик стеков
 public:
-    Stack(int count=1);                             // параметр конструктора - это размер стека
+    Stack(int count);                               // параметр конструктора - это размер стека
     ~Stack();
     int getSize();                                  // 
     void push(Type);
     Type pop();
     Type showStack(int);
-    int getCounter();
+    int getCounterElement();
 };
 
 template<typename Type>
-Stack<Type>::Stack(int count=1)                     // конструктор стека
+Stack<Type>::Stack(int count)                       // конструктор стека
 {
     top = 0;
     size = count;
@@ -54,24 +54,17 @@ void Stack<Type>::push(Type value)                  // положить в стек
 template<typename Type>
 Type Stack<Type>::pop()                             // взять из стека
 {
-    if (top<=0)
-    {
-        cout<<"Стек пуст!"<<endl;
-        Type zero();
-        return zero;
-    }
     return array[--top];
 }
 
 template<typename Type>
 Type Stack<Type>::showStack(int num)                // отобразить содержимое стека
 {   
-    if (num<=top)
-        return array[num];
+    return array[num];
 }
 
 template<typename Type>
-inline int Stack<Type>::getCounter()
+inline int Stack<Type>::getCounterElement()
 {
     return counter;
 }
