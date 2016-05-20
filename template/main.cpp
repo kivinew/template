@@ -3,16 +3,12 @@
 Вариант №9: стек (размер - параметр конструктора).*/
 
 #include "Stack.h"
-#include <iostream>
-#include <clocale>
-#include <Windows.h>
 #include "Complex.h"
 
 #define ONE         49
 #define TWO         50
 #define THREE       51
 #define FOUR        52
-using namespace std;
 
 bool menu();
 void gotoxy(int, int);
@@ -22,10 +18,10 @@ Stack<Complex> *objPtr=NULL;
 int main()
 {
     setlocale(LC_ALL, "Russian");
-    int max;
+    int stackSize;
     cout<<"Размер стека: ";
-    cin>>max;
-    Stack<Complex> obj(max);
+    cin>>stackSize;
+    Stack<Complex> obj(stackSize);
     objPtr = &obj;
     while(menu());
 }
@@ -36,18 +32,19 @@ bool menu()
     cout<<"Содержимое стека:";                      // вывода
     gotoxy(50, 1);                                  // содержимого
     cout<<"Полученное значение";                    // стека
-    int elemCount = objPtr->getCounterElement();
-    for (int i = 0; i<elemCount; i++)
-    {
-        gotoxy(0, 3+i);
-        Complex element = objPtr->showStack(i);
-        if (elemCount!=0)
-        {
-            cout<<element;                          // ОШИБКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                                                    //
+    int elemCount = objPtr->getCounterElements();   // 
+    if (elemCount>0)                                //
+    {                                               //
+        for (int i = 0; i<elemCount; i++)           //
+        {                                           //
+            gotoxy(0, 3+i);                         //
+            Complex element = objPtr->showStack(i); //
+                                                    //
+            //cout<<element;                        // ОШИБКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
-        else
-            cout<<"empty";
     }
+
     gotoxy(0, 15);
     cout<<"\t1 - вывод из стека"<<endl
         <<"\t2 - ввод в стек"<<endl

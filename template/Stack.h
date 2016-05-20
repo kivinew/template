@@ -1,6 +1,10 @@
 /* Разработка шаблона.
 Кудрявцев И.В. (поток 09.2015).*/
 #pragma once
+#include <iostream>
+#include <clocale>
+#include <Windows.h>
+using namespace std;
 
 template  <typename Type>
 class Stack
@@ -16,7 +20,7 @@ public:
     void push(Type);
     Type pop();
     Type showStack(int);
-    int getCounterElement();
+    int getCounterElements();
 };
 
 template<typename Type>
@@ -64,7 +68,7 @@ Type Stack<Type>::showStack(int num)                // отобразить содержимое сте
 }
 
 template<typename Type>
-inline int Stack<Type>::getCounterElement()
+inline int Stack<Type>::getCounterElements()
 {
     return counter;
 }
