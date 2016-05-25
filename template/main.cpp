@@ -2,8 +2,11 @@
 Кудрявцев И.В. (поток 09.2015).
 Вариант №9: стек (размер - параметр конструктора).*/
 
-#include "Stack.h"
+#include <conio.h>
+#include <Windows.h>
+#include <clocale>
 #include "Complex.h"
+#include "Stack.h"
 
 #define ONE         49
 #define TWO         50
@@ -39,9 +42,10 @@ bool menu()
         for (int i = 0; i<elemCount; i++)           //
         {                                           //
             gotoxy(0, 3+i);                         //
-            Complex element = objPtr->showStack(i); //
+            Complex *element = new Complex;          //
+                *element = objPtr->getElement(i);    //
                                                     //
-            //cout<<element;                        // ОШИБКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            element->show();                         // ОШИБКА!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
     }
 

@@ -1,9 +1,7 @@
 ﻿/* Разработка шаблона.*/
 #pragma once
 #include <iostream>
-#include <conio.h>
 #include <math.h>
-#include <Windows.h>
 using namespace std;
 
 class Complex
@@ -18,7 +16,7 @@ public:
     ~Complex();
     double mod();
     double arg();
-    void showObject();
+    void show();
     static int getCounter();
     static void del(Complex* &);
     void edit();
