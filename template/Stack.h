@@ -1,16 +1,16 @@
-/* Разработка шаблона.
-Кудрявцев И.В. (поток 09.2015).*/
+п»ї/* Р Р°Р·СЂР°Р±РѕС‚РєР° С€Р°Р±Р»РѕРЅР°.
+РљСѓРґСЂСЏРІС†РµРІ Р.Р’. (РїРѕС‚РѕРє 09.2015).*/
 #pragma once
 using namespace std;
 template  <typename Type>
 class Stack
 {
-    int size;                                       // размер массива
-    Type *array = new Type[size];                   // стек в виде массива
-    int top;                                        // вершина стека
-    int counter;                                    // счётчик элементов массива (объекта класса Stack)
+    int size;                                       // СЂР°Р·РјРµСЂ РјР°СЃСЃРёРІР°
+    Type *array = new Type[size];                   // СЃС‚РµРє РІ РІРёРґРµ РјР°СЃСЃРёРІР°
+    int top;                                        // РІРµСЂС€РёРЅР° СЃС‚РµРєР°
+    int counter;                                    // СЃС‡С‘С‚С‡РёРє СЌР»РµРјРµРЅС‚РѕРІ РјР°СЃСЃРёРІР° (РѕР±СЉРµРєС‚Р° РєР»Р°СЃСЃР° Stack)
 public:
-    Stack(int count);                               // параметр конструктора - это размер стека
+    Stack(int count);                               // РїР°СЂР°РјРµС‚СЂ РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂР° - СЌС‚Рѕ СЂР°Р·РјРµСЂ СЃС‚РµРєР°
     ~Stack();
     int getSize();                                  // 
     void push(Type);
@@ -19,41 +19,41 @@ public:
     int getCounterElements();
 };
 template<typename Type>
-Stack<Type>::Stack(int count)                       // конструктор стека
+Stack<Type>::Stack(int count)                       // РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚РµРєР°
 {
     top = 0;
     size = count;
 }
 template<typename Type>
-Stack<Type>::~Stack()                               // деструктор
+Stack<Type>::~Stack()                               // РґРµСЃС‚СЂСѓРєС‚РѕСЂ
 {
 
     cout<<"Stack destructor: "<<counter<<endl;
 }
 template<typename Type>
-int Stack<Type>::getSize()                          // размер стека
+int Stack<Type>::getSize()                          // СЂР°Р·РјРµСЂ СЃС‚РµРєР°
 {
     return size;
 }
 template<typename Type>
-void Stack<Type>::push(Type value)                  // положить в стек
+void Stack<Type>::push(Type value)                  // РїРѕР»РѕР¶РёС‚СЊ РІ СЃС‚РµРє
 {
     if (top>=size)
     {
-        cout<<"Переполнение стека!"<<endl;
+        cout<<"РџРµСЂРµРїРѕР»РЅРµРЅРёРµ СЃС‚РµРєР°!"<<endl;
         return;
     }
     array[top++] = value;
     counter++;
 }
 template<typename Type>
-Type Stack<Type>::pop()                             // взять из стека
+Type Stack<Type>::pop()                             // РІР·СЏС‚СЊ РёР· СЃС‚РµРєР°
 {
     return array[--top];
     counter--;
 }
 template<typename Type>
-Type Stack<Type>::getElement(int num)               // отобразить содержимое стека
+Type Stack<Type>::getElement(int num)               // РѕС‚РѕР±СЂР°Р·РёС‚СЊ СЃРѕРґРµСЂР¶РёРјРѕРµ СЃС‚РµРєР°
 {   
     return array[num];
 }
